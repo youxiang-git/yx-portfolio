@@ -5,8 +5,8 @@ import ContactButton from "@/app/components/Header/ContactButton";
 
 const Header = () => {
 	return (
-		<div className="flex flex-row justify-between">
-      <Link href="/">Chai Youxiang</Link>
+		<div className="sticky bg-background py-8 flex flex-row justify-between text-xl">
+      <Link className="ml-4" href="/"><span>Chai Youxiang</span></Link>
 			<Navbar />
       <ContactButton />
 		</div>

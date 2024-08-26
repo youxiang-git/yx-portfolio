@@ -3,8 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    @apply border border-red-600 
+  }
   body {
     @apply min-h-screen bg-gradient-to-b from-background via-background/95 to-background bg-no-repeat bg-[size:100%] text-textPrimary
   }
 }
-
