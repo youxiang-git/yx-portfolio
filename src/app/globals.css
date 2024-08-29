@@ -6,8 +6,15 @@
   /* * {
     @apply border border-red-600 
   } */
-
   body {
-    @apply min-h-screen bg-background text-text
+    @apply min-h-screen min-w-[375px] bg-background text-text;
+  }
+
+  section {
+    @apply flex h-screen flex-col;
+  }
+
+  .div_content {
+    @apply mx-auto h-screen w-[90vw] max-w-screen-xxl;
   }
 }

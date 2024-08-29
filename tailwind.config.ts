@@ -9,9 +9,7 @@ const config: Config = {
 
   theme: {
     screens: {
-      xxs: "375px",
-      xs: "390px",
-      sm: "640px",
+      sm: "375px",
       md: "768px",
       lg: "1024px",
       xl: "1440px",
@@ -24,6 +22,11 @@ const config: Config = {
         primary: "#1C1F35",
         secondary: "#2A2E50",
         accent: "#BDBDDB",
+      },
+      fontSize: {
+        clamp: "clamp(4rem, 15vw, 20rem)",
+        description: "clamp(1rem, 2vw, 6rem)",
+        buttons: "clamp(1rem, 1vw, 6rem)",
       },
       animation: {
         aurora: "aurora 60s linear infinite",

@@ -45,7 +45,7 @@ const ChipTab = ({
         <motion.span
           layoutId="pill-tab"
           transition={{ type: "spring", duration: 0.5 }}
-          className="absolute inset-0 z-0 rounded-md bg-gradient-to-r from-secondary to-primary"
+          className="absolute inset-0 z-0 rounded-md bg-gradient-to-br from-secondary to-primary"
         ></motion.span>
       )}
     </button>
