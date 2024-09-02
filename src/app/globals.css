@@ -7,14 +7,14 @@
     @apply border border-red-600 
   } */
   body {
-    @apply min-h-screen min-w-[375px] bg-background text-text;
+    @apply min-w-[375px] bg-background text-text;
   }
 
   section {
-    @apply relative flex h-fit min-h-screen w-full flex-col;
+    @apply relative flex h-screen overflow-hidden;
   }
 
-  .div_content {
-    @apply mx-auto w-[90vw] max-w-screen-xxl;
-  }
+  /* .div_content {
+    @apply w-full;
+  } */
 }

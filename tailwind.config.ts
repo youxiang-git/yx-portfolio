@@ -24,7 +24,9 @@ const config: Config = {
         accent: "#BDBDDB",
       },
       fontSize: {
-        clamp: "clamp(4rem, 15vw, 20rem)",
+        // clamp: "clamp(4rem, 15vw, 20rem)",
+        clamp: "15vw",
+        tw: "clamp(1.5rem, 2vw, 12rem)",
         description: "clamp(1rem, 2vw, 6rem)",
         buttons: "clamp(1rem, 1vw, 6rem)",
       },
