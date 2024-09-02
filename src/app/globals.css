@@ -11,10 +11,10 @@
   }
 
   section {
-    @apply flex h-screen flex-col;
+    @apply relative flex h-fit min-h-screen w-full flex-col;
   }
 
   .div_content {
-    @apply mx-auto h-screen w-[90vw] max-w-screen-xxl;
+    @apply mx-auto w-[90vw] max-w-screen-xxl;
   }
 }
