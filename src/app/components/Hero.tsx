@@ -5,16 +5,24 @@ import {
   ArrowTopRightIcon,
   DownloadIcon,
 } from "@radix-ui/react-icons";
-import { motion, Variants } from "framer-motion";
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Typewriter from "typewriter-effect";
 import ProfilePic from "/public/self_portrait.jpg";
 
 const Hero = () => {
+  const ref = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const translateY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   const imageAnimation: Variants = {
     hidden: { opacity: 0, y: -200 },
@@ -62,7 +70,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="bg-red-400/30">
+    <section id="hero" ref={ref}>
       <div className="relative mx-auto flex h-fit w-[90vw] flex-col self-center">
         <div className="relative mt-[10vw] flex h-fit flex-col md:flex-row md:justify-center">
           <motion.h1
@@ -79,6 +87,7 @@ const Hero = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
+            exit={{ opacity: 0 }}
             className="z-[1] mb-[5vw] self-center text-clamp font-extrabold leading-none tracking-[-0.5vw] mix-blend-difference md:absolute md:-bottom-[8vw] md:mb-0"
           >
             YOUXIANG
@@ -90,6 +99,7 @@ const Hero = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
+            style={{ y: translateY }}
           >
             <Image
               src={ProfilePic}
@@ -110,11 +120,17 @@ const Hero = () => {
             <span className="text-buttons">{"I'm an aspiring"}</span>
             <span className="text-tw font-bold">
               <Typewriter
-                options={{
-                  strings: ["Software Engineer.", "Full Stack Developer."],
-                  autoStart: true,
-                  loop: true,
+                onInit={(typewriter) => {
+                  typewriter
+                    .pauseFor(400)
+                    .typeString("Software Engineer.")
+                    .pauseFor(2000)
+                    .deleteAll()
+                    .typeString("Full Stack Developer.")
+                    .pauseFor(2000)
+                    .start();
                 }}
+                options={{ loop: true }}
               />
             </span>
           </motion.div>
@@ -180,17 +196,17 @@ const Hero = () => {
         >
           <Link
             href="https://www.linkedin.com/in/youxiang-chai/"
-            className="flex items-center"
+            className="group/linkedin flex transform items-center overflow-hidden transition-all"
           >
             LinkedIn
-            <ArrowTopRightIcon className="h-[1vw] w-[1vw]" />
+            <ArrowTopRightIcon className="group-hover/linkedin:animate-flyUp h-[1vw] w-[1vw]" />
           </Link>
           <Link
             href="https://github.com/youxiang-git"
-            className="flex items-center"
+            className="group/gh flex size-fit transform items-center overflow-hidden transition-all"
           >
             GitHub
-            <ArrowTopRightIcon className="h-[1vw] w-[1vw]" />
+            <ArrowTopRightIcon className="group-hover/gh:animate-flyUp h-[1vw] w-[1vw]" />
           </Link>
         </motion.div>
       </div>

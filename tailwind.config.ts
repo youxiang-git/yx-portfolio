@@ -31,18 +31,17 @@ const config: Config = {
         // buttons: "clamp(1rem, 1vw, 6rem)",
         buttons: "1vw",
       },
-      animation: {
-        aurora: "aurora 60s linear infinite",
-      },
       keyframes: {
-        aurora: {
-          from: {
-            backgroundPosition: "50% 50%, 50% 50%",
-          },
-          to: {
-            backgroundPosition: "350% 50%, 350% 50%",
-          },
+        flyUp: {
+          "0%": { transform: "translateY(0) translateX(0)" },
+          "60%": { transform: "translateY(-150%) translateX(150%)" },
+          "61%": { opacity: "0" },
+          "62%": { transform: "translateY(0) translateX(0)" },
+          "100%": { opacity: "1" },
         },
+      },
+      animation: {
+        flyUp: "flyUp 0.6s",
       },
     },
   },
