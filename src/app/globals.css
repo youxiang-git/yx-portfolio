@@ -13,8 +13,4 @@
   section {
     @apply relative flex h-screen overflow-hidden;
   }
-
-  /* .div_content {
-    @apply w-full;
-  } */
 }

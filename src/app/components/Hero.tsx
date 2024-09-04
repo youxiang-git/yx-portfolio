@@ -62,8 +62,8 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero">
-      <div className="relative mx-auto flex h-fit w-[90vw] flex-col self-center bg-sky-400/30">
+    <section id="hero" className="bg-red-400/30">
+      <div className="relative mx-auto flex h-fit w-[90vw] flex-col self-center">
         <div className="relative mt-[10vw] flex h-fit flex-col md:flex-row md:justify-center">
           <motion.h1
             variants={h1Right}
@@ -79,7 +79,7 @@ const Hero = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="z-[1] self-center text-clamp font-extrabold leading-none tracking-[-0.5vw] mix-blend-difference md:absolute md:-bottom-[8vw]"
+            className="z-[1] mb-[5vw] self-center text-clamp font-extrabold leading-none tracking-[-0.5vw] mix-blend-difference md:absolute md:-bottom-[8vw] md:mb-0"
           >
             YOUXIANG
           </motion.h1>
@@ -136,18 +136,19 @@ const Hero = () => {
             className="relative flex flex-row items-center"
           >
             <span
-              className={`duration-50 ease relative z-[10] flex rounded-full border bg-background px-6 py-4 text-buttons font-medium text-text transition-all ease-out ${isClicked ? "" : "hover:-translate-y-2 hover:translate-x-2"}`}
+              className={`duration-50 ease relative z-[10] flex rounded-full border bg-background px-[0.8vw] py-[0.5vw] text-buttons font-medium text-text transition-all ease-out ${isClicked ? "" : "hover:-translate-y-2 hover:translate-x-2"}`}
             >
               Download CV
-              <DownloadIcon className="ml-[0.5vw] h-[1vw] min-h-6 w-[1vw] min-w-6 self-center" />
+              <DownloadIcon className="ml-[0.5vw] h-[1vw] w-[1vw] self-center" />
             </span>
             <span className="absolute z-[5] size-full rounded-full border bg-text" />
           </a>
         </motion.button>
 
-        <div className="absolute bottom-0 left-0 m-8 hidden flex-col items-center md:flex">
+        {/* Scroll Down Indicator */}
+        <div className="absolute bottom-0 left-0 m-[1vw] hidden flex-col items-center md:flex">
           <motion.div
-            className="mb-4"
+            className="mb-[1vw] text-[0.8vw]"
             initial={{ opacity: 0, y: 10 }}
             animate={isHovered ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
             transition={{ duration: 0.1 }}
@@ -162,7 +163,7 @@ const Hero = () => {
             transition={{ duration: 0.3, delay: 1 }}
           >
             <ArrowDownIcon
-              className="h-[2vw] min-h-6 w-[2vw] min-w-6 animate-bounce"
+              className="h-[2vw] w-[2vw] animate-bounce"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             />
@@ -175,21 +176,21 @@ const Hero = () => {
           variants={elementsVariants}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="absolute bottom-0 right-0 m-8 hidden w-fit grid-cols-2 gap-x-4 text-[1vw] text-text md:grid"
+          className="absolute bottom-0 right-0 m-[1vw] hidden w-fit grid-cols-2 gap-x-[0.5vw] text-[1vw] text-text md:grid"
         >
           <Link
             href="https://www.linkedin.com/in/youxiang-chai/"
             className="flex items-center"
           >
             LinkedIn
-            <ArrowTopRightIcon className="h-[1vw] min-h-6 w-[1vw] min-w-6" />
+            <ArrowTopRightIcon className="h-[1vw] w-[1vw]" />
           </Link>
           <Link
             href="https://github.com/youxiang-git"
             className="flex items-center"
           >
             GitHub
-            <ArrowTopRightIcon className="h-[1vw] min-h-6 w-[1vw] min-w-6" />
+            <ArrowTopRightIcon className="h-[1vw] w-[1vw]" />
           </Link>
         </motion.div>
       </div>

@@ -21,11 +21,11 @@ const About = () => {
       <div className="div_content mt-[10%] md:mt-[5%]">
         <div className="flex">
           <motion.div
-            className="relative h-[50vh] w-[40%] md:w-[30vw]"
+            className="relative h-[30vw] w-[20vw]"
             variants={imageAnimation}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            // viewport={{ margin: "20vh 0px 0px 0px" }}
           >
             <Image
               src={ProfilePic}
