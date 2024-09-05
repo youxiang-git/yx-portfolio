@@ -1,115 +1,240 @@
 "use client ";
-import React from "react";
 
 import {
-  SiJavascript,
-  SiTypescript,
-  SiHtml5,
+  SiC,
   SiCss3,
-  SiReact,
-  SiNextdotjs,
-  SiFramer,
-  SiFigma,
-  SiTailwindcss,
-  SiPostgresql,
-  SiGraphql,
-  SiPython,
-  SiNodedotjs,
-  SiFirebase,
-  SiNginx,
   SiDocker,
-  SiLinux,
+  SiFigma,
+  SiFirebase,
+  SiFramer,
   SiGit,
   SiGithub,
-  SiC,
   SiGo,
-  SiPytorch,
-  SiScikitlearn,
+  SiGraphql,
+  SiHtml5,
+  SiJavascript,
+  SiLinux,
+  SiNextdotjs,
+  SiNginx,
+  SiNodedotjs,
+  SiNumpy,
   SiOpencv,
   SiPandas,
-  SiNumpy,
+  SiPostgresql,
+  SiPython,
+  SiPytorch,
+  SiReact,
+  SiScikitlearn,
+  SiTailwindcss,
+  SiTypescript,
 } from "react-icons/si";
 
+import {
+  easeInOut,
+  motion,
+  useScroll,
+  useTransform,
+  Variants,
+} from "framer-motion";
 import { IconContext } from "react-icons";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import MagneticIcons from "./ui/MagneticIcons";
 
 const skillsIcons = [
   {
     title: "Front-End",
     icons: [
-      <SiJavascript key="js" />,
-      <SiTypescript key="ts" />,
-      <SiHtml5 key="html5" />,
-      <SiCss3 key="css" />,
-      <SiReact key="react" />,
-      <SiNextdotjs key="nextjs" />,
-      <SiFramer key="framer" />,
-      <SiFigma key="figma" />,
-      <SiTailwindcss key="tailwind" />,
+      <SiJavascript key="Javascript" />,
+      <SiTypescript key="Typescript" />,
+      <SiHtml5 key="HTML" />,
+      <SiCss3 key="CSS" />,
+      <SiReact key="ReactJS" />,
+      <SiNextdotjs key="NextJS" />,
+      <SiFramer key="Framer Motion" />,
+      <SiFigma key="Figma" />,
+      <SiTailwindcss key="TailwindCSS" />,
     ],
   },
   {
     title: "Back-End",
     icons: [
-      <SiPostgresql key="postgres" />,
-      <SiGraphql key="graphql" />,
-      <SiPython key="python" />,
-      <SiNodedotjs key="nodejs" />,
-      <SiFirebase key="firebase" />,
+      <SiPostgresql key="PostgreSQL" />,
+      <SiGraphql key="GraphQL" />,
+      <SiPython key="Python" />,
+      <SiNodedotjs key="NodeJS" />,
+      <SiFirebase key="Firebase" />,
     ],
   },
   {
     title: "DevOps",
     icons: [
-      <SiNginx key="nginx" />,
-      <SiDocker key="docker" />,
-      <SiLinux key="linux" />,
-      <SiGit key="git" />,
-      <SiGithub key="github" />,
+      <SiNginx key="NGINX" />,
+      <SiDocker key="Docker" />,
+      <SiLinux key="Linux" />,
+      <SiGit key="Git" />,
+      <SiGithub key="Github" />,
     ],
   },
   {
     title: "Languages & Libraries",
     icons: [
-      <SiC key="c" />,
-      <SiGo key="golang" />,
-      <SiPytorch key="pytorch" />,
-      <SiScikitlearn key="sklearn" />,
-      <SiOpencv key="opencv" />,
-      <SiPandas key="pandas" />,
-      <SiNumpy key="np" />,
+      <SiC key="C" />,
+      <SiGo key="Golang" />,
+      <SiPytorch key="Pytorch" />,
+      <SiScikitlearn key="SciKit Learn" />,
+      <SiOpencv key="OpenCV" />,
+      <SiPandas key="Pandas" />,
+      <SiNumpy key="Numpy" />,
     ],
   },
 ];
 
+const skillsVariants: Variants = {
+  hidden: { opacity: 0, y: -100 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.2, duration: 0.2, staggerChildren: 0.1 },
+  },
+};
+
+const iconVariants: Variants = {
+  hidden: { opacity: 0, y: -100 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3 },
+  },
+};
+
 const Skills = () => {
+  const scrollRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start end", "start start"],
+  });
+
+  const translateYTitleY = useTransform(
+    scrollYProgress,
+    [0, 0.2],
+    ["-150%", "0%"],
+    {
+      ease: easeInOut,
+    },
+  );
+
+  const translateYFE = useTransform(scrollYProgress, [0.3, 0.5], [0, 1], {
+    ease: easeInOut,
+  });
+
+  const translateYBE = useTransform(scrollYProgress, [0.4, 0.6], [0, 1], {
+    ease: easeInOut,
+  });
+
+  const translateYDev = useTransform(scrollYProgress, [0.5, 0.7], [0, 1], {
+    ease: easeInOut,
+  });
+
+  const translateYLang = useTransform(scrollYProgress, [0.6, 0.8], [0, 1], {
+    ease: easeInOut,
+  });
+
+  const translates = [
+    translateYFE,
+    translateYBE,
+    translateYDev,
+    translateYLang,
+  ];
+
+  const translateYOpacityY = useTransform(scrollYProgress, [0, 0.2], [0, 1], {
+    ease: easeInOut,
+  });
+
   return (
-    <section id="skills">
-      <div className="mx-auto flex h-[60%] w-[90vw] flex-col items-center justify-between text-[4vw] text-text md:my-[2vw] md:text-left md:text-[1vw]">
-        <h1>Skills & Technologies</h1>
+    <section id="skills" ref={scrollRef}>
+      <div className="mx-auto flex w-[90vw] flex-col text-[4vw] text-text md:my-[2vw] md:items-center md:justify-between md:text-left md:text-[1vw]">
+        {/* Skill & Tech Title */}
+        <motion.h1
+          className="mx-auto mb-[6vw] flex"
+          style={{ y: translateYTitleY, opacity: translateYOpacityY }}
+        >
+          Skills & Technologies
+        </motion.h1>
+
         <IconContext.Provider
           value={{ size: "100%", style: { verticalAlign: "middle" } }}
         >
-          {skillsIcons.map((skill) => {
+          {/* Tech Domain (i.e. FE / BE) */}
+          {skillsIcons.map((skill, idx) => {
             return (
-              <div
-                className="flex flex-col items-center justify-center"
-                key={skill.title}
-              >
-                <h1>{skill.title}</h1>
-                <div className="grid grid-flow-col gap-x-[1vw]">
-                  {skill.icons.map((icon, index) => {
-                    return (
-                      <motion.div
-                        className="mt-[1vw] h-[2vw] w-[2vw]"
-                        key={index}
-                      >
-                        {icon}
-                      </motion.div>
-                    );
-                  })}
-                </div>
-              </div>
+              <>
+                <motion.div
+                  className="flex h-full flex-col items-center justify-center"
+                  key={skill.title}
+                >
+                  {/* desktop */}
+                  <motion.h1
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ margin: "0% 0% -10% 0%" }}
+                    variants={skillsVariants}
+                    className="mb-[0.4vw] hidden md:flex"
+                  >
+                    {skill.title}
+                  </motion.h1>
+                  {/* mobile */}
+                  <motion.h1
+                    className="flex md:hidden"
+                    style={{ opacity: translates[idx] }}
+                  >
+                    {skill.title}
+                  </motion.h1>
+                  {/* desktop */}
+                  <motion.div
+                    className="hidden md:mb-0 md:grid md:grid-flow-col md:gap-x-[1.5vw]"
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ margin: "0% 0% -10% 0%" }}
+                    variants={skillsVariants}
+                  >
+                    {skill.icons.map((icon, index) => {
+                      return (
+                        <motion.div
+                          key={index}
+                          variants={iconVariants}
+                          className="flex md:h-[4vw] md:w-[4vw] md:p-0"
+                        >
+                          <MagneticIcons>
+                            {icon}
+                            <div className="flex justify-center pt-[0.2vw] text-center text-[3vw] leading-tight tracking-tighter text-text md:text-[0.8vw]">
+                              {icon.key}
+                            </div>
+                          </MagneticIcons>
+                        </motion.div>
+                      );
+                    })}
+                  </motion.div>
+                  {/* mobile */}
+                  <motion.div className="mb-[5vw] flex max-w-[90vw] flex-row flex-wrap items-center justify-center md:hidden">
+                    {skill.icons.map((icon, index) => {
+                      return (
+                        <motion.div
+                          key={index}
+                          className="mx-[2vw] my-[4vw] flex h-[9vw] w-[9vw] justify-center text-center"
+                          style={{ opacity: translates[idx] }}
+                        >
+                          <div>
+                            {icon}
+                            <div className="mt-[1vw] text-[2.5vw] leading-tight tracking-tighter text-text">
+                              {icon.key}
+                            </div>
+                          </div>
+                        </motion.div>
+                      );
+                    })}
+                  </motion.div>
+                </motion.div>
+              </>
             );
           })}
         </IconContext.Provider>

@@ -1,9 +1,9 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
 import { easeInOut } from "framer-motion/dom";
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import ProfilePic from "/public/self_portrait.jpg";
 
 const About = () => {
@@ -42,7 +42,34 @@ const About = () => {
 
   const translateYAbout = useTransform(
     scrollYProgress,
-    [0, 0.25, 0.75, 1],
+    [0, 0.2, 0.75, 1],
+    [0, 1, 1, 0],
+    {
+      ease: easeInOut,
+    },
+  );
+
+  const translateYAbout1 = useTransform(
+    scrollYProgress,
+    [0.1, 0.3, 0.8, 1],
+    [0, 1, 1, 0],
+    {
+      ease: easeInOut,
+    },
+  );
+
+  const translateYAbout2 = useTransform(
+    scrollYProgress,
+    [0.2, 0.4, 0.85, 1],
+    [0, 1, 1, 0],
+    {
+      ease: easeInOut,
+    },
+  );
+
+  const translateYAbout3 = useTransform(
+    scrollYProgress,
+    [0.3, 0.5, 0.9, 1],
     [0, 1, 1, 0],
     {
       ease: easeInOut,
@@ -89,29 +116,20 @@ const About = () => {
             >
               About me
             </motion.span>
-            <div className="mb-[2vw] flex h-full flex-col justify-between text-justify text-[3.6vw] leading-normal text-text md:text-left md:text-[1.2vw] md:leading-loose">
-              <motion.p
-                // className=""
-                style={{ opacity: translateYAbout }}
-              >
+            <div className="flex h-full flex-col justify-between text-justify text-[3.3vw] leading-normal text-text md:text-left md:text-[1.2vw] md:leading-loose">
+              <motion.p style={{ opacity: translateYAbout1 }}>
                 {`My name is Chai Youxiang and I’m a fresh graduate of Computer
                 Science from Nanyang Technological University, Singapore. I’ve
                 always had a deep passion for Software and Web Development and I
                 thrive on learning new technologies to expand my skillset.`}
               </motion.p>
-              <motion.p
-                // className="text-[1.2vw] leading-[2vw]"
-                style={{ opacity: translateYAbout }}
-              >
+              <motion.p style={{ opacity: translateYAbout2 }}>
                 {`My goal is to create software that is not only functional, but
                   engaging and user-oriented. I strongly believe in creating
                   experiences that resonate with the user and applications that
                   are accessible and easy to use.`}
               </motion.p>
-              <motion.p
-                // className="text-[1.2vw] leading-[2vw]"
-                style={{ opacity: translateYAbout }}
-              >
+              <motion.p style={{ opacity: translateYAbout3 }}>
                 <b>Currently, I am looking for full time opportunities </b>
                 where I can contribute my skills and continue to grow as a
                 developer.

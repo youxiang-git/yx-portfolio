@@ -145,7 +145,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="bottom-1/3 left-2/3 text-text md:absolute"
           >
-            <span className="relative z-10 text-buttons">
+            <span className="relative z-10 text-[3vw] md:text-buttons">
               {"I'm an aspiring"}
             </span>
             <span className="relative z-10 text-tw font-bold">

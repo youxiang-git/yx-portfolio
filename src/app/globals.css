@@ -11,6 +11,6 @@
   }
 
   section {
-    @apply relative flex h-screen overflow-hidden;
+    @apply relative flex h-[160svw] overflow-hidden md:h-screen md:max-h-screen;
   }
 }
