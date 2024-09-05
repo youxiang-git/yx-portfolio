@@ -1,32 +1,10 @@
 "use client";
 
-import {
-  delay,
-  motion,
-  useScroll,
-  useTransform,
-  Variants,
-} from "framer-motion";
-import React, { useRef } from "react";
-import Image from "next/image";
-import ProfilePic from "/public/self_portrait.jpg";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { easeInOut } from "framer-motion/dom";
-
-const AboutText = [
-  `My name is Chai Youxiang and I’m a fresh graduate of Computer
-  Science from Nanyang Technological University, Singapore. I’ve
-  always had a deep passion for Software and Web Development and I
-  thrive on learning new technologies to expand my skillset.`,
-
-  `My goal is to create software that is not only functional, but
-  engaging and user-oriented. I strongly believe in creating
-  experiences that resonate with the user and applications that
-  are accessible and easy to use.`,
-
-  `Currently, I am looking for full time opportunities
-  where I can contribute my skills and continue to grow as a
-  developer.`,
-];
+import Image from "next/image";
+import { useRef } from "react";
+import ProfilePic from "/public/self_portrait.jpg";
 
 const About = () => {
   const ref = useRef(null);
@@ -104,14 +82,14 @@ const About = () => {
               className="rotate-[8deg] rounded-full object-cover object-[45%]"
             ></Image>
           </motion.div>
-          <div className="ml-[4vw] flex h-[50vh] w-[80vw] flex-col md:h-[35vw]">
+          <div className="ml-[4vw] flex h-[60%] w-[80vw] flex-col md:h-[35vw] md:w-[50vw]">
             <motion.span
-              className="my-[6vw] text-center text-[4vw] leading-[2vw] text-text underline underline-offset-[0.3vw] md:my-[2vw] md:text-left md:text-[1.5vw]"
+              className="my-[6vw] text-center text-[3vw] leading-[2vw] text-text underline underline-offset-4 md:my-[2vw] md:text-left md:text-[1vw]"
               style={{ opacity: translateYAbout }}
             >
               About me
             </motion.span>
-            <div className="mb-[2vw] flex h-full flex-col justify-between text-justify text-[3.5vw] leading-normal md:text-left md:text-[1.2vw] md:leading-loose">
+            <div className="mb-[2vw] flex h-full flex-col justify-between text-justify text-[3.6vw] leading-normal text-text md:text-left md:text-[1.2vw] md:leading-loose">
               <motion.p
                 // className=""
                 style={{ opacity: translateYAbout }}

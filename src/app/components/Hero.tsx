@@ -152,7 +152,7 @@ const Hero = () => {
               <Typewriter
                 onInit={(typewriter) => {
                   typewriter
-                    .pauseFor(400)
+                    .pauseFor(800)
                     .typeString("Software Engineer.")
                     .pauseFor(2000)
                     .deleteAll()
