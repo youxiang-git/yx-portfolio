@@ -35,10 +35,30 @@ const About = () => {
     offset: ["start center", "end center"],
   });
 
+  const translateYImageMobile = useTransform(
+    scrollYProgress,
+    [0, 0.5],
+    ["-150%", "0%"],
+    { ease: easeInOut },
+  );
+  const translateYImageOpacityMobile = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.5, 1],
+    [0, 0, 1, 1],
+    { ease: easeInOut },
+  );
+
+  const translateYImageOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.7, 1],
+    [0, 1, 1, 0],
+    { ease: easeInOut },
+  );
+
   const translateYImage = useTransform(
     scrollYProgress,
-    [0, 0.45, 0.55, 1],
-    ["100%", "0%", "0%", "-100%"],
+    [0, 0.3, 0.7, 1],
+    ["-50%", "0%", "0%", "50%"],
     { ease: easeInOut },
   );
 
@@ -53,11 +73,12 @@ const About = () => {
 
   return (
     <section id="about" ref={ref}>
-      <div className="mx-auto mt-[10%] w-[90vw] md:mt-[5%]">
-        <div className="flex">
+      <div className="mx-auto flex w-[90vw] items-center justify-center">
+        <div className="flex size-full flex-col items-center justify-center md:flex-row">
+          {/* Profile Picture Desktop*/}
           <motion.div
-            className="relative h-[35vw] w-[20vw]"
-            style={{ y: translateYImage }}
+            className="relative hidden h-[35vw] w-[20vw] md:block"
+            style={{ y: translateYImage, opacity: translateYImageOpacity }}
           >
             <Image
               src={ProfilePic}
@@ -67,25 +88,56 @@ const About = () => {
               className="rotate-[8deg] rounded-bl-[6rem] rounded-tr-[6rem] object-cover object-[45%]"
             ></Image>
           </motion.div>
-          <div className="ml-[4vw] flex w-[50vw] flex-col text-2xl">
+          {/* Profile Picture Mobile*/}
+          <motion.div
+            className="relative h-[40vw] w-[40vw] md:hidden"
+            style={{
+              y: translateYImageMobile,
+              opacity: translateYImageOpacityMobile,
+            }}
+          >
+            <Image
+              src={ProfilePic}
+              alt="Self Portrait"
+              fill
+              priority
+              className="rotate-[8deg] rounded-full object-cover object-[45%]"
+            ></Image>
+          </motion.div>
+          <div className="ml-[4vw] flex h-[50vh] w-[80vw] flex-col md:h-[35vw]">
             <motion.span
-              className="my-[2vw] text-left text-[2vw] leading-[2vw] text-text underline underline-offset-[0.3vw] md:text-[1.5vw]"
+              className="my-[6vw] text-center text-[4vw] leading-[2vw] text-text underline underline-offset-[0.3vw] md:my-[2vw] md:text-left md:text-[1.5vw]"
               style={{ opacity: translateYAbout }}
             >
               About me
             </motion.span>
-            <div className="mb-[2vw] flex size-full flex-col justify-between">
-              {AboutText.map((text, index) => {
-                return (
-                  <motion.p
-                    key={index}
-                    className="text-[1.2vw] leading-[2vw]"
-                    style={{ opacity: translateYAbout }}
-                  >
-                    {text}
-                  </motion.p>
-                );
-              })}
+            <div className="mb-[2vw] flex h-full flex-col justify-between text-justify text-[3.5vw] leading-normal md:text-left md:text-[1.2vw] md:leading-loose">
+              <motion.p
+                // className=""
+                style={{ opacity: translateYAbout }}
+              >
+                {`My name is Chai Youxiang and I’m a fresh graduate of Computer
+                Science from Nanyang Technological University, Singapore. I’ve
+                always had a deep passion for Software and Web Development and I
+                thrive on learning new technologies to expand my skillset.`}
+              </motion.p>
+              <motion.p
+                // className="text-[1.2vw] leading-[2vw]"
+                style={{ opacity: translateYAbout }}
+              >
+                {`My goal is to create software that is not only functional, but
+                  engaging and user-oriented. I strongly believe in creating
+                  experiences that resonate with the user and applications that
+                  are accessible and easy to use.`}
+              </motion.p>
+              <motion.p
+                // className="text-[1.2vw] leading-[2vw]"
+                style={{ opacity: translateYAbout }}
+              >
+                <b>Currently, I am looking for full time opportunities </b>
+                where I can contribute my skills and continue to grow as a
+                developer.
+              </motion.p>
             </div>
           </div>
         </div>

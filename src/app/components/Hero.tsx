@@ -23,6 +23,13 @@ const Hero = () => {
   });
 
   const translateY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const translateYMobile = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", "120%"],
+  );
+  const opacityMobile = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const scaleMobile = useTransform(scrollYProgress, [0, 1], [1, 0.1]);
 
   const imageAnimation: Variants = {
     hidden: { opacity: 0, y: -200 },
@@ -92,14 +99,35 @@ const Hero = () => {
           >
             YOUXIANG
           </motion.h1>
-
+          {/* Profile Picture Desktop */}
           <motion.div
-            className="relative aspect-square w-[82vw] self-center md:w-[23vw]"
+            className="relative hidden aspect-square w-[82vw] self-center md:block md:w-[23vw]"
             variants={imageAnimation}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             style={{ y: translateY }}
+          >
+            <Image
+              src={ProfilePic}
+              alt="Self Portrait"
+              fill
+              priority
+              className="rounded-[10%] object-cover"
+            ></Image>
+          </motion.div>
+          {/* Profile Picture Desktop */}
+          <motion.div
+            className="relative aspect-square w-[82vw] self-center md:hidden md:w-[23vw]"
+            variants={imageAnimation}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            style={{
+              y: translateYMobile,
+              opacity: opacityMobile,
+              scale: scaleMobile,
+            }}
           >
             <Image
               src={ProfilePic}
@@ -117,8 +145,10 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="bottom-1/3 left-2/3 text-text md:absolute"
           >
-            <span className="text-buttons">{"I'm an aspiring"}</span>
-            <span className="text-tw font-bold">
+            <span className="relative z-10 text-buttons">
+              {"I'm an aspiring"}
+            </span>
+            <span className="relative z-10 text-tw font-bold">
               <Typewriter
                 onInit={(typewriter) => {
                   typewriter
@@ -152,10 +182,10 @@ const Hero = () => {
             className="relative flex flex-row items-center"
           >
             <span
-              className={`duration-50 ease relative z-[10] flex rounded-full border bg-background px-[0.8vw] py-[0.5vw] text-buttons font-medium text-text transition-all ease-out ${isClicked ? "" : "hover:-translate-y-2 hover:translate-x-2"}`}
+              className={`duration-50 ease relative z-[10] flex rounded-full border bg-background px-[3vw] py-[2vw] text-[4vw] font-medium text-text transition-all ease-out md:px-[0.8vw] md:py-[0.5vw] md:text-[1vw] ${isClicked ? "" : "hover:-translate-y-2 hover:translate-x-2"}`}
             >
               Download CV
-              <DownloadIcon className="ml-[0.5vw] h-[1vw] w-[1vw] self-center" />
+              <DownloadIcon className="ml-[0.5vw] h-[4vw] w-[4vw] self-center md:h-[1vw] md:w-[1vw]" />
             </span>
             <span className="absolute z-[5] size-full rounded-full border bg-text" />
           </a>
@@ -199,14 +229,14 @@ const Hero = () => {
             className="group/linkedin flex transform items-center overflow-hidden transition-all"
           >
             LinkedIn
-            <ArrowTopRightIcon className="group-hover/linkedin:animate-flyUp h-[1vw] w-[1vw]" />
+            <ArrowTopRightIcon className="h-[1vw] w-[1vw] group-hover/linkedin:animate-flyUp" />
           </Link>
           <Link
             href="https://github.com/youxiang-git"
             className="group/gh flex size-fit transform items-center overflow-hidden transition-all"
           >
             GitHub
-            <ArrowTopRightIcon className="group-hover/gh:animate-flyUp h-[1vw] w-[1vw]" />
+            <ArrowTopRightIcon className="h-[1vw] w-[1vw] group-hover/gh:animate-flyUp" />
           </Link>
         </motion.div>
       </div>

@@ -11,6 +11,6 @@
   }
 
   section {
-    @apply relative flex h-screen overflow-hidden;
+    @apply relative flex h-screen w-screen overflow-hidden;
   }
 }
