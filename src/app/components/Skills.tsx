@@ -155,7 +155,7 @@ const Skills = () => {
       <div className="mx-auto flex h-[85%] w-[90vw] flex-col text-[4vw] text-text md:my-[2vw] md:items-center md:justify-between md:text-left md:text-[1vw]">
         {/* Skill & Tech Title */}
         <motion.h1
-          className="mx-auto mb-[4vw] flex"
+          className="mx-auto flex text-[5vw] font-extrabold md:text-[2vw]"
           style={{ y: translateYTitleY, opacity: translateYOpacityY }}
         >
           Skills & Technologies
@@ -176,7 +176,7 @@ const Skills = () => {
                   <motion.h1
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ margin: "0% 0% 200% 0%" }}
+                    viewport={{ margin: "0% 0% -20% 0%", once: true }}
                     variants={skillsVariants}
                     className="mb-[0.4vw] hidden md:flex"
                   >

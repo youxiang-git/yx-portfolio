@@ -109,14 +109,14 @@ const About = () => {
               className="rotate-[8deg] rounded-full object-cover object-[45%]"
             ></Image>
           </motion.div>
-          <div className="ml-[4vw] flex h-[60%] w-[80vw] flex-col md:h-[35vw] md:w-[50vw]">
+          <div className="ml-[4vw] flex h-[70%] w-[80vw] flex-col md:h-[35vw] md:w-[50vw]">
             <motion.span
-              className="my-[6vw] text-center text-[3vw] leading-[2vw] text-text underline underline-offset-4 md:my-[2vw] md:text-left md:text-[1vw]"
+              className="my-[6vw] text-center text-[5vw] font-extrabold leading-[2vw] text-text md:my-[2vw] md:text-left md:text-[2vw]"
               style={{ opacity: translateYAbout }}
             >
               About me
             </motion.span>
-            <div className="flex h-full flex-col justify-between text-justify text-[3.3vw] leading-normal text-text md:text-left md:text-[1.2vw] md:leading-loose">
+            <div className="flex h-full flex-col justify-between pb-[8vw] text-justify text-[3.3vw] leading-normal text-text md:pb-0 md:text-left md:text-[1.2vw] md:leading-loose">
               <motion.p style={{ opacity: translateYAbout1 }}>
                 {`My name is Chai Youxiang and I’m a fresh graduate of Computer
                 Science from Nanyang Technological University, Singapore. I’ve
