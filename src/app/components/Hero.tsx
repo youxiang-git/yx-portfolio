@@ -23,6 +23,11 @@ const Hero = () => {
   });
 
   const translateY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const translateYYouxiang = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", "-30%"],
+  );
   const translateYMobile = useTransform(
     scrollYProgress,
     [0, 1],
@@ -96,6 +101,7 @@ const Hero = () => {
             viewport={{ once: true }}
             exit={{ opacity: 0 }}
             className="z-[1] mb-[5vw] self-center text-clamp font-extrabold leading-none tracking-[-0.5vw] mix-blend-difference md:absolute md:-bottom-[8vw] md:mb-0"
+            style={{ y: translateYYouxiang }}
           >
             YOUXIANG
           </motion.h1>

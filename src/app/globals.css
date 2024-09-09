@@ -13,4 +13,8 @@
   section {
     @apply relative flex h-[160svw] overflow-hidden md:h-screen md:max-h-screen;
   }
+
+  li {
+    @apply mb-[2vw] text-[3vw] md:mb-[0.5vw] md:text-[0.8vw];
+  }
 }

@@ -90,7 +90,7 @@ const skillsIcons = [
 ];
 
 const skillsVariants: Variants = {
-  hidden: { opacity: 0, y: -100 },
+  hidden: { opacity: 0, y: "-100%" },
   show: {
     opacity: 1,
     y: 0,
@@ -99,11 +99,11 @@ const skillsVariants: Variants = {
 };
 
 const iconVariants: Variants = {
-  hidden: { opacity: 0, y: -100 },
+  hidden: { opacity: 0, y: "-100%" },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.3 },
+    transition: { duration: 0.3, ease: easeInOut },
   },
 };
 
@@ -152,10 +152,10 @@ const Skills = () => {
 
   return (
     <section id="skills" ref={scrollRef}>
-      <div className="mx-auto flex w-[90vw] flex-col text-[4vw] text-text md:my-[2vw] md:items-center md:justify-between md:text-left md:text-[1vw]">
+      <div className="mx-auto flex h-[85%] w-[90vw] flex-col text-[4vw] text-text md:my-[2vw] md:items-center md:justify-between md:text-left md:text-[1vw]">
         {/* Skill & Tech Title */}
         <motion.h1
-          className="mx-auto mb-[6vw] flex"
+          className="mx-auto mb-[4vw] flex"
           style={{ y: translateYTitleY, opacity: translateYOpacityY }}
         >
           Skills & Technologies
@@ -176,7 +176,7 @@ const Skills = () => {
                   <motion.h1
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ margin: "0% 0% -10% 0%" }}
+                    viewport={{ margin: "0% 0% 200% 0%" }}
                     variants={skillsVariants}
                     className="mb-[0.4vw] hidden md:flex"
                   >
@@ -194,8 +194,12 @@ const Skills = () => {
                     className="hidden md:mb-0 md:grid md:grid-flow-col md:gap-x-[1.5vw]"
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ margin: "0% 0% -10% 0%" }}
+                    viewport={{
+                      margin: "0% 0% -20% 0%",
+                      once: true,
+                    }}
                     variants={skillsVariants}
+                    style={{ willChange: translateYFE }}
                   >
                     {skill.icons.map((icon, index) => {
                       return (
