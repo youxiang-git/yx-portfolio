@@ -1,20 +1,39 @@
-import React from "react";
-import Link from "next/link";
-import Navbar from "@/app/components/Header/Navbar";
-import ContactButton from "@/app/components/Header/ContactButton";
+"use client";
 import MobileNavToggle from "@/app/components/Header/MobileNavToggle";
+import Navbar from "@/app/components/Header/Navbar";
+import { useScroll } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const { scrollYProgress } = useScroll();
+  const [isScrollDown, setIsScrollDown] = useState(false);
+  const [lastScrollProgress, setLastScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on("change", (latestScrollProgress) => {
+      if (latestScrollProgress > lastScrollProgress) {
+        // Scrolling down
+        setIsScrollDown(true);
+      } else {
+        // Scrolling up
+        setIsScrollDown(false);
+      }
+      setLastScrollProgress(latestScrollProgress); // Update the last scroll progress value
+    });
+
+    return () => unsubscribe(); // Cleanup on component unmount
+  }, [scrollYProgress, lastScrollProgress]);
+
   return (
     <>
-      <div className="fixed top-0 z-50 hidden w-screen items-center justify-between bg-background/50 py-8 text-xl backdrop-blur-sm md:flex md:flex-row">
-        <Link className="ml-8" href="/">
-          <span>Chai Youxiang</span>
-        </Link>
+      <div
+        className={`fixed top-0 z-50 hidden w-screen justify-center bg-background/0 pt-[0.8vw] transition-all md:flex md:flex-row ${
+          isScrollDown ? "-translate-y-full" : "translate-y-0"
+        }`}
+      >
         <Navbar />
-        <ContactButton />
       </div>
-      <div className="flex md:hidden">
+      <div className="md:hidden">
         <MobileNavToggle />
       </div>
     </>

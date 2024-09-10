@@ -88,7 +88,6 @@ const About = () => {
             <Image
               src={ProfilePic}
               alt="Self Portrait"
-              fill
               priority
               className="rotate-[8deg] rounded-bl-[6rem] rounded-tr-[6rem] object-cover object-[45%]"
             ></Image>
@@ -104,7 +103,6 @@ const About = () => {
             <Image
               src={ProfilePic}
               alt="Self Portrait"
-              fill
               priority
               className="rotate-[8deg] rounded-full object-cover object-[45%]"
             ></Image>

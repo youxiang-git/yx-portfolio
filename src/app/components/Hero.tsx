@@ -82,7 +82,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" ref={ref}>
+    <section id="home" ref={ref}>
       <div className="relative mx-auto flex h-fit w-[90vw] flex-col self-center">
         <div className="relative mt-[10vw] flex h-fit flex-col md:flex-row md:justify-center">
           <motion.h1

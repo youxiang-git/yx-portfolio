@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const ContactButton = () => {
-  return (
-    <div className="mr-8">ContactButton</div>
-  )
-}
+  return <div className="mr-8">Contact</div>;
+};
 
-export default ContactButton
+export default ContactButton;

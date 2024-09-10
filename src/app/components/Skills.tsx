@@ -155,7 +155,7 @@ const Skills = () => {
       <div className="mx-auto flex h-[85%] w-[90vw] flex-col text-[4vw] text-text md:my-[2vw] md:items-center md:justify-between md:text-left md:text-[1vw]">
         {/* Skill & Tech Title */}
         <motion.h1
-          className="mx-auto flex text-[5vw] font-extrabold md:text-[2vw]"
+          className="mx-auto flex pt-[10%] text-[5vw] font-extrabold md:pt-0 md:text-[2vw]"
           style={{ y: translateYTitleY, opacity: translateYOpacityY }}
         >
           Skills & Technologies
@@ -167,78 +167,76 @@ const Skills = () => {
           {/* Tech Domain (i.e. FE / BE) */}
           {skillsIcons.map((skill, idx) => {
             return (
-              <>
-                <motion.div
-                  className="flex h-full flex-col items-center justify-center"
-                  key={skill.title}
+              <motion.div
+                className="flex h-full flex-col items-center justify-center"
+                key={`${skill.title}-${idx}`}
+              >
+                {/* desktop */}
+                <motion.h1
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ margin: "0% 0% -20% 0%", once: true }}
+                  variants={skillsVariants}
+                  className="mb-[0.4vw] hidden md:flex"
                 >
-                  {/* desktop */}
-                  <motion.h1
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ margin: "0% 0% -20% 0%", once: true }}
-                    variants={skillsVariants}
-                    className="mb-[0.4vw] hidden md:flex"
-                  >
-                    {skill.title}
-                  </motion.h1>
-                  {/* mobile */}
-                  <motion.h1
-                    className="flex md:hidden"
-                    style={{ opacity: translates[idx] }}
-                  >
-                    {skill.title}
-                  </motion.h1>
-                  {/* desktop */}
-                  <motion.div
-                    className="hidden md:mb-0 md:grid md:grid-flow-col md:gap-x-[1.5vw]"
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{
-                      margin: "0% 0% -20% 0%",
-                      once: true,
-                    }}
-                    variants={skillsVariants}
-                    style={{ willChange: translateYFE }}
-                  >
-                    {skill.icons.map((icon, index) => {
-                      return (
-                        <motion.div
-                          key={index}
-                          variants={iconVariants}
-                          className="flex md:h-[4vw] md:w-[4vw] md:p-0"
-                        >
-                          <MagneticIcons>
-                            {icon}
-                            <div className="flex justify-center pt-[0.2vw] text-center text-[3vw] leading-tight tracking-tighter text-text md:text-[0.8vw]">
-                              {icon.key}
-                            </div>
-                          </MagneticIcons>
-                        </motion.div>
-                      );
-                    })}
-                  </motion.div>
-                  {/* mobile */}
-                  <motion.div className="mb-[5vw] flex max-w-[90vw] flex-row flex-wrap items-center justify-center md:hidden">
-                    {skill.icons.map((icon, index) => {
-                      return (
-                        <motion.div
-                          key={index}
-                          className="mx-[2vw] my-[4vw] flex h-[9vw] w-[9vw] justify-center text-center"
-                          style={{ opacity: translates[idx] }}
-                        >
-                          <div>
-                            {icon}
-                            <div className="mt-[1vw] text-[2.5vw] leading-tight tracking-tighter text-text">
-                              {icon.key}
-                            </div>
+                  {skill.title}
+                </motion.h1>
+                {/* mobile */}
+                <motion.h1
+                  className="flex md:hidden"
+                  style={{ opacity: translates[idx] }}
+                >
+                  {skill.title}
+                </motion.h1>
+                {/* desktop */}
+                <motion.div
+                  className="hidden md:mb-0 md:grid md:grid-flow-col md:gap-x-[1.5vw]"
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{
+                    margin: "0% 0% -20% 0%",
+                    once: true,
+                  }}
+                  variants={skillsVariants}
+                  style={{ willChange: translateYFE }}
+                >
+                  {skill.icons.map((icon, index) => {
+                    return (
+                      <motion.div
+                        key={`desktop-${index}`}
+                        variants={iconVariants}
+                        className="flex md:h-[4vw] md:w-[4vw] md:p-0"
+                      >
+                        <MagneticIcons>
+                          {icon}
+                          <div className="flex justify-center pt-[0.2vw] text-center text-[3vw] leading-tight tracking-tighter text-text md:text-[0.8vw]">
+                            {icon.key}
                           </div>
-                        </motion.div>
-                      );
-                    })}
-                  </motion.div>
+                        </MagneticIcons>
+                      </motion.div>
+                    );
+                  })}
                 </motion.div>
-              </>
+                {/* mobile */}
+                <motion.div className="mb-[5vw] flex max-w-[90vw] flex-row flex-wrap items-center justify-center md:hidden">
+                  {skill.icons.map((icon, index) => {
+                    return (
+                      <motion.div
+                        key={`mobile-${index}`}
+                        className="mx-[2vw] my-[4vw] flex h-[9vw] w-[9vw] justify-center text-center"
+                        style={{ opacity: translates[idx] }}
+                      >
+                        <div>
+                          {icon}
+                          <div className="mt-[1vw] text-[2.5vw] leading-tight tracking-tighter text-text">
+                            {icon.key}
+                          </div>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </motion.div>
+              </motion.div>
             );
           })}
         </IconContext.Provider>
