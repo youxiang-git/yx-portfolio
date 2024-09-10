@@ -78,7 +78,7 @@ const About = () => {
 
   return (
     <section id="about" ref={ref}>
-      <div className="mx-auto flex w-[90vw] items-center justify-center">
+      <div className="p mx-auto my-[10%] flex w-[90vw] items-center justify-center md:mt-0">
         <div className="flex size-full flex-col items-center justify-center md:flex-row">
           {/* Profile Picture Desktop*/}
           <motion.div
@@ -105,6 +105,7 @@ const About = () => {
               src={ProfilePic}
               alt="Self Portrait"
               priority
+              fill
               className="rotate-[8deg] rounded-full object-cover object-[45%]"
             ></Image>
           </motion.div>

@@ -11,7 +11,7 @@
   }
 
   section {
-    @apply relative flex h-[160svw] overflow-hidden md:h-screen md:max-h-screen;
+    @apply relative flex h-[180svw] overflow-hidden md:h-screen md:max-h-screen;
   }
 
   li {
