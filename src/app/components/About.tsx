@@ -89,6 +89,7 @@ const About = () => {
               src={ProfilePic}
               alt="Self Portrait"
               priority
+              fill
               className="rotate-[8deg] rounded-bl-[6rem] rounded-tr-[6rem] object-cover object-[45%]"
             ></Image>
           </motion.div>
