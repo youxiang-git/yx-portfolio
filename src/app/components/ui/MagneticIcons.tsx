@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  AnimationControls,
-  motion,
-  TargetAndTransition,
-  VariantLabels,
-  Variants,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useRef, useState } from "react";
 
 const MagneticIcons = ({ children }: { children: React.ReactNode }) => {
