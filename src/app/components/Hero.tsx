@@ -152,21 +152,20 @@ const Hero = () => {
             className="bottom-1/3 left-2/3 text-text md:absolute"
           >
             <span className="relative z-10 text-[3vw] md:text-buttons">
-              {"I'm an aspiring"}
+              {"Hey! I'm a"}
             </span>
             <span className="relative z-10 text-tw font-bold">
               <Typewriter
                 onInit={(typewriter) => {
                   typewriter
-                    .pauseFor(800)
-                    .typeString("Software Engineer.")
-                    .pauseFor(2000)
-                    .deleteAll()
-                    .typeString("Full Stack Developer.")
-                    .pauseFor(2000)
+                    .pauseFor(1000)
+                    .typeString("Fullstack AI Developer.")
                     .start();
+                  // .pauseFor(2000)
+                  // .deleteAll()
+                  // .typeString("Machine Learning Engineer.")
+                  // .pauseFor(2000)
                 }}
-                options={{ loop: true }}
               />
             </span>
           </motion.div>

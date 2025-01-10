@@ -116,24 +116,30 @@ const About = () => {
             >
               About me
             </motion.span>
-            <div className="flex h-full flex-col justify-between pb-[8vw] text-justify text-[3.3vw] leading-normal text-text md:pb-0 md:text-left md:text-[1.2vw] md:leading-loose">
+            <div className="flex h-full flex-col justify-around pb-[8vw] text-justify text-[3.3vw] leading-normal text-text md:pb-0 md:text-left md:text-[1.2vw] md:leading-loose">
               <motion.p style={{ opacity: translateYAbout1 }}>
-                {`My name is Chai Youxiang and I’m a fresh graduate of Computer
-                Science from Nanyang Technological University, Singapore. I’ve
-                always had a deep passion for Software and Web Development and I
-                thrive on learning new technologies to expand my skillset.`}
+                My name is Chai Youxiang and I’m bachelor of{" "}
+                <b>
+                  Computer Science from Nanyang Technological University,
+                  Singapore
+                </b>
+                . I'm currently living my dream of being an{" "}
+                <b>AI Fullstack Developer!.</b>
               </motion.p>
               <motion.p style={{ opacity: translateYAbout2 }}>
+                My goal is to create software that is not only functional, but
+                engaging and user-oriented. I strongly believe that there is a
+                place for <b>Machine Learning</b> and{" "}
+                <b>Artificial Intelligence</b> in creating experiences that
+                resonate with the user and applications that are cleverly
+                intuitive and easy to use.
+              </motion.p>
+              {/* <motion.p style={{ opacity: translateYAbout3 }}>
                 {`My goal is to create software that is not only functional, but
                   engaging and user-oriented. I strongly believe in creating
                   experiences that resonate with the user and applications that
                   are accessible and easy to use.`}
-              </motion.p>
-              <motion.p style={{ opacity: translateYAbout3 }}>
-                <b>Currently, I am looking for full time opportunities </b>
-                where I can contribute my skills and continue to grow as a
-                developer.
-              </motion.p>
+              </motion.p> */}
             </div>
           </div>
         </div>

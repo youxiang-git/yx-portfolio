@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <>
       <div
-        className={`fixed top-0 z-50 hidden w-screen justify-center bg-background/0 pt-[0.8vw] transition-all md:flex md:flex-row ${
+        className={`fixed top-0 z-50 hidden w-screen justify-center border-b-[0.1px] bg-background pt-[0.8vw] transition-all md:flex md:flex-row ${
           isScrollDown ? "-translate-y-full" : "translate-y-0"
         }`}
       >

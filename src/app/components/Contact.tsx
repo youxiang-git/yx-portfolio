@@ -16,9 +16,9 @@ const Contact = () => {
     <section id="contact">
       <div className="relative mx-auto flex flex-col items-center justify-center">
         <h1 className="text-[5vw] md:text-[2vw]">{`Let's get in touch!`}</h1>
-        <p className="pt-[1vw] text-[3vw] md:text-[1vw]">
+        {/* <p className="pt-[1vw] text-[3vw] md:text-[1vw]">
           {`I'm currently open to full-time opportunities.`}
-        </p>
+        </p> */}
         <div className="my-[5vh] flex md:my-0">
           <motion.button
             initial="hidden"

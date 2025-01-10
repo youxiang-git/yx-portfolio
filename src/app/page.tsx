@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import About from "@/app/components/About";
 import Contact from "@/app/components/Contact";
 import Experience from "@/app/components/Experience";

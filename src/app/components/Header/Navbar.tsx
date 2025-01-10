@@ -10,7 +10,7 @@ const Navbar = () => {
   const [selected, setSelected] = useState<NavLinks | undefined>();
 
   return (
-    <div className="relative flex items-center justify-around border-b-[0.5px] border-text/80 bg-background pb-[0.4vw] md:gap-1 lg:gap-2">
+    <div className="relative flex items-center justify-around border-text/80 pb-[0.4vw] md:gap-1 lg:gap-2">
       {sections.map((sect, index) => (
         <ChipTab
           section={sect}
