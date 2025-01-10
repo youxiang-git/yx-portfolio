@@ -118,12 +118,12 @@ const About = () => {
             </motion.span>
             <div className="flex h-full flex-col justify-around pb-[8vw] text-justify text-[3.3vw] leading-normal text-text md:pb-0 md:text-left md:text-[1.2vw] md:leading-loose">
               <motion.p style={{ opacity: translateYAbout1 }}>
-                My name is Chai Youxiang and I’m bachelor of{" "}
+                My name is Chai Youxiang and I&#39;m bachelor of{" "}
                 <b>
                   Computer Science from Nanyang Technological University,
                   Singapore
                 </b>
-                . I'm currently living my dream of being an{" "}
+                . I&#39;m currently living my dream of being an{" "}
                 <b>AI Fullstack Developer!.</b>
               </motion.p>
               <motion.p style={{ opacity: translateYAbout2 }}>
