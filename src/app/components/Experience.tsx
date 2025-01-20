@@ -69,7 +69,7 @@ const data: TimelineEntry[] = [
           Bachelor of Engineering in Computer Science
         </h2>
         <h2 className="mb-[3vw] text-[3vw] md:mb-[0.5vw] md:text-[0.8vw]">
-          August 2017 - Feburary 2018
+          August 2020 - January 2024
         </h2>
         <ul className="list-disc text-left text-[3vw] md:text-[1vw]">
           <li>
